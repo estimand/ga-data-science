@@ -6,8 +6,15 @@
 \definecolor{mDarkTeal}{HTML}{263238}
 \definecolor{mLightBrown}{HTML}{FF5722}
 
+\usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{hyphenat}
+\usepackage{multirow}
+\usepackage{nicefrac}
+
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
 
 \usepackage{minted}
 \usemintedstyle{tango}
@@ -26,6 +33,22 @@
 \setmainfont{Lucida Sans OT}
 \setsansfont[Scale=MatchLowercase]{Lucida Sans OT}
 \setmonofont[Scale=MatchLowercase]{Lucida Console DK}
+
+\usepackage{mathspec}
+\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{Lucida Bright Math OT}
+
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\mat}[1]{\ensuremath{\vec{#1}}}
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+
+\newcommand{\E}[1]{\ensuremath{\mathbb{E}\!\left[ #1 \right]}}
+\newcommand{\V}[1]{\ensuremath{\mathbb{V}\!\left[ #1 \right]}}
+\newcommand{\Prob}[1]{\ensuremath{\Pr\!\left( #1 \right)}}
+\newcommand{\Normal}[2]{\ensuremath{\mathcal{N}\!\left( #1, #2 \right)}}
+\newcommand{\simiid}{\ensuremath{\overset{\text{\tiny i.i.d.}}{\sim}}}
+
+\DeclareMathOperator{\logit}{logit}
 
 \author{Gianluca Campanella}
 \date{}
