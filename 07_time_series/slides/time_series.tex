@@ -1,0 +1,181 @@
+\input{../../_common/preamble}
+
+\title{Introduction to time series modelling}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Contents}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Statistics for time series}
+
+\begin{frame}{Time series}
+    \begin{center}
+        Any data that change \alert{over time}
+    \end{center}
+    \vfill\pause
+    \begin{block}{Seasonality}
+        \begin{itemize}
+            \item Cyclic pattern(s) repeated over time
+            \item E.g.\ peak of sales in December
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{Trend}
+        \begin{itemize}
+            \item Change in `baseline' levels over time
+            \item E.g.\ linear increase in sales over last 5 years
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Rolling (or moving) statistics}
+    Each observation is replaced with some statistic (e.g.\ mean) of $k$
+    consecutive time points:\vspace{-1ex}
+    \begin{itemize}
+        \item $k$ preceding points
+        \item $k / 2$ points prior to and following a given time point
+    \end{itemize}
+    \vfill
+    \begin{block}{Usage}
+        \begin{itemize}
+            \item Reduce influence of outliers
+            \item Smooth time series to identify patterns
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Exponentially weighted averages}
+    \begin{itemize}
+        \item Rolling statistics weigh the $k$ time points equally
+        \item Often, points closer in time are more important
+        \item[$\rightarrow$] Weighting
+    \end{itemize}
+    \vfill\pause
+    \begin{block}{Exponential weighting}
+        \begin{itemize}
+            \item $\text{EWMA}_{1} = y_{1}$
+            \item $\text{EWMA}_{t} = \alpha\,y_{t} + \left( 1 - \alpha \right) \text{EWMA}_{t-1}$, $t > 1$
+            \item[$\rightarrow$] $\alpha$ controls the \alert{decay}
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Expanding statistics}
+    Each observation is replaced with some statistic (e.g.\ sum) of all points
+    prior to the given time point
+    \vfill
+    \begin{block}{Usage}
+        \begin{itemize}
+            \item Visualise cumulative distribution over time
+            \item Identify trends
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Autocorrelation}
+    Correlation of the time series with itself at different lags:\vspace{-1ex}
+    \begin{itemize}
+        \item At lag 1, dependency on `yesterday'
+        \item At lag 7, dependency on `last week'
+        \item At lag 30, dependency on `last month'\ldots
+    \end{itemize}
+    \vfill
+    \begin{block}{Usage}
+        \begin{itemize}
+            \item Identify trends
+            \item Identify period of seasonal cycles
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Forecasting}
+
+\begin{frame}{Forecasting}
+    \begin{block}{Prediction}
+        \begin{itemize}
+            \item Value of $\vec{y}$ given values for the predictors $\mat{X}$
+            \item Does not depend on time (or temporal effect is negligible)
+        \end{itemize}
+    \end{block}
+    \vfill\pause
+    \begin{block}{Forecasting}
+        \begin{itemize}
+            \item Value of $\vec{y}$ given \alert{previous values} of $\vec{y}$
+            \item Captures autocorrelation to `project forward'
+            \item (Some models can also incorporate predictors)
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Stationarity}
+    Many models require time series to be \alert{stationary}:\vspace{-1ex}
+    \begin{itemize}
+        \item Mean and variance constant over time
+        \item[$\rightarrow$] Seasonality and trend must be removed
+    \end{itemize}
+    \vfill\pause
+    \begin{block}{Solutions}
+        \begin{itemize}
+            \item Detrending (estimate and subtract `baseline')
+            \item Differencing (predict change or `change in changes')
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Time series models}
+
+\begin{frame}{ARMA models}
+    \begin{columns}[t]
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \textbf{A}uto\textbf{R}egressive
+            \end{center}
+            \begin{itemize}
+                \item $y_{t}$ depends on $y_{t-1}$, \ldots
+                \item Regression on past values
+                \item Captures (slow) changes \\
+                      in trend
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \textbf{M}oving \textbf{A}verage
+            \end{center}
+            \begin{itemize}
+                \item $y_{t}$ depends on $\epsilon_{t-1}$, \ldots
+                \item Smoothing of past errors
+                \item Captures sudden changes \\
+                      (e.g.\ spikes)
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    \[
+        y_{t} = \alpha +
+                \beta_{1} \, y_{t-1} + \ldots + \beta_{p} \, y_{t-p} +
+                \gamma_{1} \, \epsilon_{t-1} + \ldots + \gamma_{q} \, \epsilon_{t-q}
+    \]
+\end{frame}
+
+\begin{frame}{ARIMA models}
+    \vspace{1em}
+    \begin{block}{First\hyp{}order differences $y_{t} - y_{t-1}$}
+        \begin{itemize}
+            \item Predict change
+            \item Corresponds to velocity in physics
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{Second\hyp{}order differences $\left( y_{t} - y_{t-1} \right) - \left( y_{t-1} - y_{t-2} \right)$}
+        \begin{itemize}
+            \item Predict `change in changes'
+            \item Corresponds to acceleration in physics
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\end{document}
+
