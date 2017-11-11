@@ -1,0 +1,32 @@
+\documentclass[12pt,aspectratio=169]{beamer}
+
+\usetheme{metropolis}
+
+\definecolor{mDarkBrown}{HTML}{FF5722}
+\definecolor{mDarkTeal}{HTML}{263238}
+\definecolor{mLightBrown}{HTML}{FF5722}
+
+\usepackage{graphicx}
+\usepackage{hyphenat}
+
+\usepackage{minted}
+\usemintedstyle{tango}
+\newminted[py3]{python}{%
+    python3,
+    autogobble,
+    bgcolor=mDarkTeal!10,
+    linenos
+}
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=british]{english}
+\usepackage[english=british]{csquotes}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Lucida Sans OT}
+\setsansfont[Scale=MatchLowercase]{Lucida Sans OT}
+\setmonofont[Scale=MatchLowercase]{Lucida Console DK}
+
+\author{Gianluca Campanella}
+\date{}
+
