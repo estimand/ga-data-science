@@ -1,0 +1,338 @@
+\input{../../_common/preamble}
+
+\title{Estimation and hypothesis testing}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Contents}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\begin{frame}{Inference}
+    \begin{center}
+        {\LARGE%
+         \textbf{Desire to generalise}} \\[\medskipamount]
+        from a random sample to a population \\
+        (from which the sample was selected)
+    \end{center}
+    \vfill
+    \begin{itemize}
+        \item Estimation (including uncertainty quantification)
+        \item Hypothesis testing
+    \end{itemize}
+\end{frame}
+
+\section{Estimation}
+
+\begin{frame}{Population and sample}
+    \begin{block}{Population}
+        The \alert{entire collection of units} possessing one or more
+        characteristics we wish to understand (depends on the research question)
+    \end{block}
+    \vfill
+    \begin{block}{Sample}
+        A \alert{representative subset} of units for which we collect
+        information (known as \alert{observations}) that is then used to
+        \alert{estimate} one or more characteristics of the whole population
+    \end{block}
+\end{frame}
+
+\begin{frame}{Sampling}
+    If we draw two samples from the same population, will we always reach the
+    same conclusions?
+    \vfill\pause
+    \begin{center}
+        \LARGE%
+        \textbf{No!}
+    \end{center}
+    \begin{itemize}
+        \item Sampling variability introduces \alert{uncertainty} in our
+              estimates
+        \item What happens if we repeat the experiment over and over again?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Estimation}
+    \begin{block}{Point estimation}
+        One value summarises the characteristic of interest
+    \end{block}
+    \vfill
+    \begin{block}{Interval estimation}
+        Two values (an interval), usually together with a point estimate,
+        summarise the characteristic of interest and the \alert{uncertainty}
+        around the estimate
+    \end{block}
+\end{frame}
+
+\begin{frame}{Quantifying uncertainty: confidence intervals}
+    \begin{itemize}
+        \item \alert{Observed} (may change from sample to sample) \\[\bigskipamount]
+        \item Defined such that, \alert{were the sampling repeated multiple
+              times}, the proportion of CIs that contain the
+              population\hyp{}level value would match a certain frequency known
+              as confidence level \\
+              {\small%
+               (Note that there is no such thing as the `probability of
+                containing the population\hyp{}level value' within any given
+                confidence interval)} \\[\bigskipamount]
+        \item 95\% or 99\% confidence levels are typical \\[\bigskipamount]
+    \end{itemize}
+\end{frame}
+
+\section{Hypothesis testing}
+
+\begin{frame}{Lady tasting tea}
+    \only<1>{%
+        \begin{block}{Scenario}
+            \begin{itemize}
+                \item Rothamsted, early 1920s
+                \item Given a cup of tea, a lady claims she can tell whether
+                      milk or tea was first added to the cup
+            \end{itemize}
+        \end{block}
+        \vfill
+        \begin{block}{Question}
+            How would you design an experiment to test her claim?
+        \end{block}}
+    \only<2>{%
+        \begin{block}{Scenario}
+            \begin{itemize}
+                \item To test her claim, Sir Fisher prepares eight cups of tea:
+                      \begin{itemize}
+                          \item Four have the milk added first
+                          \item Four have the tea added first
+                      \end{itemize}
+                \item The lady performs the experiment by selecting 4 cups \\
+                      (e.g.\ those she believes had tea poured first)
+            \end{itemize}
+        \end{block}
+        \vfill
+        \begin{block}{Question}
+            How many cups does she have to correctly identify to convince
+            \alert{you}?
+        \end{block}}
+    \only<3>{%
+        \begin{block}{Questions}
+            \begin{itemize}
+                \item How many ways are there to choose 4 cups out of 8? \\
+                      {\small%
+                       (Hint: check \texttt{scipy.misc.comb} or
+                        \texttt{sympy.binomial})} \\[\medskipamount]
+                \item Of these, how many correspond to correctly identifying\ldots
+                      \begin{itemize}
+                          \item All 4 cups?
+                          \item 3 cups only?
+                      \end{itemize}
+            \end{itemize}
+        \end{block}}
+    \only<4->{%
+        \begin{block}{Question}
+            The lady correctly identifies all 4 cups.
+            What can Sir Fisher conclude?
+        \end{block}
+        \vfill
+        \onslide<4>{%
+            \begin{itemize}
+                \item She has no ability, and has chosen the 4 cups purely by
+                      chance
+                \item She has the discriminatory ability she claims
+            \end{itemize}
+            Choosing correctly is unlikely in the first case (1 in 70), so Sir
+            Fisher \alert{rejected} this conclusion in favour of the second}}
+\end{frame}
+
+\begin{frame}{A/B testing}
+    \only<1>{%
+        \begin{center}
+            \begin{tabular}{lrrr}
+                \toprule
+                & \multicolumn{2}{c}{Cancelled} & \multicolumn{1}{c}{Total} \\
+                \midrule
+                Old packaging & 175 & 39.59\% & 442 \\
+                New packaging & 168 & 38.27\% & 439 \\
+                \bottomrule
+            \end{tabular}
+            \vfill
+            \begin{block}{Question}
+                Does the new, nicer, more expensive packaging make customers
+                less likely to cancel their subscriptions?
+            \end{block}
+        \end{center}}
+    \only<2>{%
+        \begin{center}
+            Read the blog post at \\[\medskipamount]
+            \url{https://www.candyjapan.com/behind-the-scenes/results-from-box-design-ab-test}
+        \end{center}}
+\end{frame}
+
+\begin{frame}{Hypothesis testing}
+    \begin{enumerate}
+        \item Simplify the question into two competing claims:
+              \begin{itemize}
+                  \item Null hypothesis $H_{0}$
+                  \item Alternative hypothesis $H_{1}$ \\[\medskipamount]
+              \end{itemize}
+        \item Outcome of hypothesis testing is either:
+              \begin{itemize}
+                  \item `Reject $H_{0}$' (in favour of $H_{1}$)
+                  \item `Do not reject $H_{0}$'
+              \end{itemize}
+    \end{enumerate}
+    \vfill
+    \begin{itemize}
+        \item $H_{0}$ is usually the hypothesis we wish to \alert{disprove}
+        \item The test is set up so that it cannot be rejected unless there is
+              \alert{sufficient evidence against it}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Absence of evidence is not evidence of absence}
+    If we conclude `do not reject $H_{0}$', does it mean $H_{0}$ is true?
+    \vfill\pause
+    \begin{center}
+        \LARGE%
+        \textbf{No!}
+    \end{center}
+    \begin{itemize}
+        \item It only means that \alert{there isn't sufficient evidence against
+              $H_{0}$}
+        \item[$\rightarrow$] The study is inconclusive
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Hypothesis testing step-by-step}
+    \begin{enumerate}
+        \item Choose an appropriate statistical test \\[\medskipamount]
+        \item Select a \alert{significance level $\alpha$} \\
+              (i.e.\ the probability below which you will reject $H_{0}$) \\[\medskipamount]
+        \item Conduct the experiment and record its outcome \\[\medskipamount]
+        \item Calculate the \alert{$p$-value} \\
+              (i.e.\ the probability of observing something as or more extreme
+              than the outcome supposing that $H_{0}$ is true) \\[\medskipamount]
+        \item If \alert{$p < \alpha$}, conclude: `$H_{0}$ is rejected at
+              significance level $\alpha$' \\
+              (the result is `\alert{statistically significant}')
+    \end{enumerate}
+\end{frame}
+
+\newsavebox{\TP}
+\savebox{\TP}{%
+    \begin{minipage}[c]{2cm}
+        \centering
+        \vspace{0.25cm}
+        {\LARGE\color{mDarkTeal}\cmark} \\[-0.25cm]
+        {\tiny%
+         True positive}
+        \vspace{0.25cm}
+    \end{minipage}}
+
+\newsavebox{\TN}
+\savebox{\TN}{%
+    \begin{minipage}[c]{2cm}
+        \centering
+        \vspace{0.25cm}
+        {\LARGE\color{mDarkTeal}\cmark} \\[-0.25cm]
+        {\tiny%
+         True negative}
+        \vspace{0.25cm}
+    \end{minipage}}
+
+\newsavebox{\FP}
+\savebox{\FP}{%
+    \begin{minipage}[c]{2cm}
+        \centering
+        \vspace{0.25cm}
+        {\LARGE\color{mDarkBrown}\xmark} \\[-0.25cm]
+        {\tiny%
+         False positive}
+        \vspace{0.25cm}
+    \end{minipage}}
+
+\newsavebox{\FN}
+\savebox{\FN}{%
+    \begin{minipage}[c]{2cm}
+        \centering
+        \vspace{0.25cm}
+        {\LARGE\color{mDarkBrown}\xmark} \\[-0.25cm]
+        {\tiny%
+         False negative}
+        \vspace{0.25cm}
+    \end{minipage}}
+
+\begin{frame}[fragile]{What is the significance level $\alpha$?}
+    \only<1>{%
+        A probability threshold below which:
+        \begin{itemize}
+            \item The outcome of the test will be deemed `too large' to have
+                  occurred under $H_{0}$ (i.e.\ by chance) \\[\medskipamount]
+            \item $H_{0}$ will be deemed unlikely given the data
+            \item[$\rightarrow$] $H_{0}$ will be rejected
+        \end{itemize}}
+    \only<2>{%
+        \begin{center}
+            \begin{tabular}{r|cc}
+                                      & \multicolumn{2}{c}{\textbf{State of nature}} \\
+                                      & $H_{0}$ is false & $H_{0}$ is true \\ \hline
+                Reject $H_{0}$        & \usebox{\TP}     & \usebox{\FP} \\
+                Do not reject $H_{0}$ & \usebox{\FN}     & \usebox{\TN} \\
+            \end{tabular}
+        \end{center}
+        \vfill
+        \begin{itemize}
+            \item[$\rightarrow$] $\alpha$ corresponds to the probability of a
+                                 `\alert{type I error}' (false positive) that we
+                                 are willing to accept
+        \end{itemize}}
+\end{frame}
+
+\begin{frame}{Multiple comparisons}
+    \begin{block}{Question}
+        You are conducting $n$ independent tests at some significance level
+        $\alpha$. \\
+        What is the probability of at least one false positive finding?
+    \end{block}
+    \begin{itemize}[<+->]
+        \item The probability of a FP in any one test is $\alpha$
+        \item The probability of \alert{no} FP in any one test is $1 - \alpha$
+        \item The probability of \alert{no} FPs overall is
+              $\left( 1 - \alpha \right)^{n}$
+        \item The probability of \alert{at least one} FP is
+              $1 - \left( 1 - \alpha \right)^{n}$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Multiple comparisons}
+    \begin{block}{Question}
+        For $\alpha = 5\%$ and $n = 100$ tests, what is the probability of
+        $\text{FP} \geq 1$?
+    \end{block}
+    \vfill\pause
+    Using the previous formula\ldots
+    \[
+        1 - \left( 1 - 0.05 \right)^{100} \approx 0.994 \text{,}
+    \]
+    which means we are \alert{99.4\% likely to have at least one FP}!
+\end{frame}
+
+\begin{frame}{Bonferroni correction}
+    \begin{itemize}
+        \item Idea: require more evidence to reject $H_{0}$
+        \item Using $\alpha^{\prime} = \alpha / n$, the `overall' significance
+              level (\alert{family\hyp{}wise error rate}) is approximately
+              what we intended
+    \end{itemize}
+    \vfill
+    In the previous example\ldots
+    \[
+        \alpha^{\prime} = 0.05 / 100 = 0.0005
+    \]
+    Substituting back\ldots
+    \[
+        1 - \left( 1 - 0.0005 \right)^{100} \approx 0.05
+    \]
+\end{frame}
+
+\end{document}
+
