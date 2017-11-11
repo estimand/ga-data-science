@@ -1,0 +1,113 @@
+\input{../../_common/preamble}
+
+\title{The Data Science workflow}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{The Data Science workflow}
+    \begin{enumerate}
+        \item Define the \alert{research question}
+        \item \alert{Get} the data
+        \item \alert{Explore} the data
+              \begin{itemize}
+                  \item (Re)format, clean, merge, stratify\ldots
+                  \item Identify trends and outliers
+              \end{itemize}
+        \item \alert{Model} the data
+              \begin{itemize}
+                  \item Select and build model(s)
+                  \item Evaluate and refine model(s)
+              \end{itemize}
+        \item \alert{Summarise} the results
+              \begin{itemize}
+                  \item Condense findings into recommendations
+                  \item Describe assumptions and limitations
+                  \item Identify follow\hyp{}up research questions
+              \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Define the research question}
+    \begin{itemize}
+        \item Identify the problem and \alert{why} it should be solved
+        \item Frame it in the context of data collection
+    \end{itemize}
+    \vfill
+    \begin{block}{Questions to ask}
+        \begin{itemize}
+            \item Which metric(s) need to be improved?
+            \item Which are possible actions to solve the problem?
+            \item Which information is necessary and sufficient?
+            \item What is the benefit of solving the problem?
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[t]{Get the data}
+    \begin{itemize}
+        \item \alert{Ideal vs available} (`opportunistic' usage)
+        \item Limitations
+    \end{itemize}
+    \vfill
+    \begin{block}{Questions to ask}
+        \begin{itemize}
+            \item Are there enough data?
+            \item Are they relevant to the research question?
+            \item Can they be trusted?
+            \item How were they collected?
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[t]{Explore the data}
+    \begin{itemize}
+        \item Data dictionary and any other documentation
+        \item \alert{Descriptive statistics} and \alert{visualisations}
+    \end{itemize}
+    \vfill
+    \begin{block}{Questions to ask}
+        \begin{itemize}
+            \item What kind of simple visualisations can we use?
+            \item Which data types and distributions?
+            \item Are there outliers?
+            \item Are there missing values?
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[t]{Model the data}\vspace{-1ex}
+    \begin{itemize}
+        \item \alert{Model selection} and fitting
+        \item Focus on inference and/or prediction
+    \end{itemize}
+    \vfill
+    \begin{block}{Questions to ask}
+        \begin{itemize}
+            \item Is there an outcome?
+            \item What is an appropriate model for the data?
+            \item How can we evaluate model performance?
+            \item Can the model be refined?
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}[t]{Summarise the results}
+    \begin{itemize}
+        \item \alert{Storytelling} and \alert{visual aids} to interpretation
+        \item Assumptions and limitations
+    \end{itemize}
+    \vfill
+    \begin{block}{Questions to ask}
+        \begin{itemize}
+            \item How can I communicate results effectively?
+            \item What format should I adopt?
+            \item Who are my audience?
+            \item How much can I disclose?
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\end{document}
+

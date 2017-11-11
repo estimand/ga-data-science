@@ -1,0 +1,335 @@
+\input{../../_common/preamble}
+
+\title{Introduction to Data Science}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Contents}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{What is Data Science?}
+
+\begin{frame}{What is Data Science?}
+    \only<1>{%
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    Mathematics and \\ Statistics / Operational Research
+                \end{center}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    Computing and \\ Software Engineering
+                \end{center}
+            \end{column}
+        \end{columns}
+        \vfill
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    Visualisation and \\ Communication Skills
+                \end{center}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    Domain expertise
+                \end{center}
+            \end{column}
+        \end{columns}}
+    \only<2>{%
+        \begin{center}
+            \LARGE%
+            A \alert{problem\hyp{}solving approach} \\
+            based on the scientific method
+        \end{center}}
+\end{frame}
+
+\begin{frame}[t]{What does Data Science deal with?}
+    \only<1>{%
+        \begin{center}
+            \LARGE%
+            Problems!
+        \end{center}
+        \vfill
+        Can we \alert{improve}\ldots\vspace{-1ex}
+        \begin{itemize}
+            \item The quality of offers we send to our customers?
+            \item Road safety?
+            \item How we identify people at high risk of cancer?
+        \end{itemize}}
+    \only<2>{%
+        \begin{center}
+            \LARGE%
+            Predictions?
+        \end{center}
+        \vfill
+        \alert{How likely}\ldots\vspace{-1ex}
+        \begin{itemize}
+            \item Is a customer to respond to some offer?
+            \item Are traffic accidents to occur in a certain area?
+            \item Is a person to develop cancer in the next 10 years?
+        \end{itemize}}
+    \only<3>{%
+        \begin{center}
+            \LARGE%
+            Mechanisms?
+        \end{center}
+        \vfill
+        \alert{Why}\ldots\vspace{-1ex}
+        \begin{itemize}
+            \item Does a customer decide to respond to some offer?
+            \item Do traffic accidents occur regularly in certain areas?
+            \item Do people develop cancer?
+        \end{itemize}}
+\end{frame}
+
+\begin{frame}{What is Data Science?}
+    \only<1>{%
+        \vspace{0.5em}
+        \begin{block}{Statistics}\vspace{-0.25em}
+            \begin{itemize}
+                \item Predates computers
+                \item \alert{Understand why something happens} in the face of
+                      uncertainty
+            \end{itemize}
+        \end{block}
+        \vfill
+        \begin{block}{Machine Learning}\vspace{-0.25em}
+            \begin{itemize}
+                \item `Algorithmic modelling' (L. Breiman)
+                \item Computers can \alert{learn rules} without explicit
+                      programming
+            \end{itemize}
+        \end{block}
+        \vfill
+        \begin{block}{Deep Learning}\vspace{-0.25em}
+            \begin{itemize}
+                \item Less structured inputs
+                \item Computers can \alert{learn structure} without explicit
+                      programming
+            \end{itemize}
+        \end{block}}
+    \only<2>{%
+        \begin{columns}[c]
+            \begin{column}{0.25\textwidth}
+            \end{column}
+            \begin{column}{0.375\textwidth}
+                \begin{center}
+                    \Large\bf%
+                    Predictions
+                \end{center}
+            \end{column}
+            \begin{column}{0.375\textwidth}
+                \begin{center}
+                    \Large\bf%
+                    Mechanisms
+                \end{center}
+            \end{column}
+        \end{columns}
+        \vfill
+        \begin{columns}[c]
+            \begin{column}{0.25\textwidth}
+                \begin{center}
+                    \Large\bf%
+                    Analysis
+                \end{center}
+            \end{column}
+            \begin{column}{0.375\textwidth}
+                \begin{center}
+                    \textbf{Descriptive} \\
+                    What's happening?
+                \end{center}
+            \end{column}
+            \begin{column}{0.375\textwidth}
+                \begin{center}
+                    \textbf{Diagnostic} \\
+                    Why is it happening?
+                \end{center}
+            \end{column}
+        \end{columns}
+        \vfill
+        \begin{columns}[c]
+            \begin{column}{0.25\textwidth}
+                \begin{center}
+                    \Large\bf%
+                    Building
+                \end{center}
+            \end{column}
+            \begin{column}{0.375\textwidth}
+                \begin{center}
+                    \textbf{Predictive} \\
+                    What's likely to happen?
+                \end{center}
+            \end{column}
+            \begin{column}{0.375\textwidth}
+                \begin{center}
+                   \textbf{Prescriptive} \\
+                   What do I need to do?
+                \end{center}
+            \end{column}
+        \end{columns}}
+\end{frame}
+
+\begin{frame}{Recap}
+    \begin{block}{Data Science is\ldots}
+        \begin{itemize}
+            \setlength{\itemsep}{0.75em}
+            \item \alert{Evidence\hyp{}based problem solving and
+                         decision\hyp{}making}
+            \item Multidisciplinary but domain\hyp{}driven
+            \item Analysis\hyp{}focused or building\hyp{}focused
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Who is a Data Scientist?}
+
+\begin{frame}{Who is a Data Scientist?}
+    Someone who can\ldots
+    \begin{itemize}
+        \setlength{\itemsep}{0.75em}
+        \item Get a `feel' for the data
+        \item Communicate effectively
+        \item Work well in a team
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{What's this `feel' for the data?}
+    \only<1>{%
+        \begin{itemize}
+            \setlength{\itemsep}{0.75em}
+            \item Passion for the domain
+            \item Curiosity about the data
+            \item Intuition and creativity
+            \item Common sense
+            \item Rigour and accuracy
+            \item Relevance
+        \end{itemize}}
+    \only<2>{%
+        \begin{center}
+            \includegraphics[height=0.8\textheight]{figures/survivorship_bias} \\
+            {\scriptsize%
+             Via \textit{Wikimedia Commons}}
+        \end{center}}
+\end{frame}
+
+\begin{frame}{How do I communicate effectively?}
+    \only<1>{%
+        \begin{itemize}
+            \setlength{\itemsep}{0.75em}
+            \item Condense findings into \alert{recommendations}
+            \item Use \alert{storytelling} techniques and \alert{visual aids}
+            \item Understand limitations and \alert{don't overstate results}
+        \end{itemize}}
+    \only<2>{%
+        \begin{center}
+            \includegraphics[height=0.8\textheight]{figures/pies} \\
+            {\scriptsize%
+             Via \textit{Wikimedia Commons}}
+        \end{center}}
+\end{frame}
+
+\begin{frame}{The `PR problem' of Data Science}
+    Inevitably the data are\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item Not quite what you need to solve your problem
+        \item Too limited, too large, too inaccurate, too expensive to
+              obtain\ldots
+    \end{itemize}
+    \vfill
+    But (eventually) you\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item End up with a `nice' dataset
+        \item Apply some models
+    \end{itemize}
+    \vspace{-1ex}
+    \ldots and it \alert{looks} incredibly easy from the outside!
+\end{frame}
+
+\section[What's it like \\ to be a Data Scientist?]%
+        {What's it like to be a Data Scientist?}
+
+\begin{frame}{Data Science workflow}
+    \begin{enumerate}
+        \setlength{\itemsep}{0.75em}
+        \item Define the problem
+        \item Obtain the data
+        \item Clean and explore the data
+        \item Model the data
+        \item Summarise the results
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Time allocation}
+    \only<1>{%
+        \begin{center}
+            \LARGE%
+            Which takes longer?
+        \end{center}}
+    \only<2>{%
+        In decreasing order\ldots
+        \begin{enumerate}
+            \item Defining the problem
+            \item Obtaining the data
+            \item Cleaning and exploring the data
+            \item \alert{Managing expectations}
+            \item Summarising the results
+            \item \alert{Learning new things}
+            \item Modelling
+        \end{enumerate}}
+\end{frame}
+
+\begin{frame}{Modelling misconceptions}
+    Most well\hyp{}executed data science projects don't\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item Use complicated tools
+        \item Fit complicated models
+    \end{itemize}
+    \vfill
+    Instead, they do\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item \alert{Focus on solving the problem}
+        \item Use appropriate --- not necessarily big! --- data
+        \item Use relatively standard models
+        \item Interpret results sceptically
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The 80---20 rule of modelling}
+    \begin{itemize}
+        \item The first \alert{reasonable} thing you can do goes 80\% of the way
+        \item Everything after that is to get the remaining 20\%\ldots \\
+              often at additional cost!
+    \end{itemize}
+    \vfill\pause
+    \begin{center}
+        \LARGE%
+        Is it worth it?
+    \end{center}
+\end{frame}
+
+\begin{frame}{Caveat}
+    \begin{center}
+        {\Large%
+         The Data Science workflow is} \\[\bigskipamount]
+        {\LARGE%
+         \alert{non\hyp{}linear} and \alert{iterative}} \\[2\bigskipamount]
+    \end{center}
+\end{frame}
+
+\begin{frame}{Recap}
+    A successful Data Scientist\ldots
+    \begin{itemize}
+        \item Is insatiably curious --- and a bit stubborn!
+        \item Never stops learning
+        \item Is a practical, impact\hyp{}driven, dependable person
+        \item Can tell a story
+        \item Knows the limitations of Data Science
+    \end{itemize}
+\end{frame}
+
+\end{document}
+
