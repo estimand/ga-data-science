@@ -1,0 +1,257 @@
+\input{../../_common/preamble}
+
+\title{Introduction to databases}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Contents}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\begin{frame}{Databases}
+    Databases manage\ldots
+    \begin{itemize}
+        \item \alert{Storage} of information \\[\bigskipamount]
+        \item \alert{Querying} and retrieval
+        \item[$\rightarrow$] Structured Query Language (SQL) \\[\bigskipamount]
+        \item \alert{Consistency} and \alert{access rights} (permissions)
+    \end{itemize}
+\end{frame}
+
+\section{Relational databases}
+
+\begin{frame}{Relational databases}
+    \begin{itemize}
+        \item Organised in \alert{tables} (‘entities’ or ‘concepts’) \\[\bigskipamount]
+        \item Each table has a \alert{schema} describing data types and constraints \\[\bigskipamount]
+        \item In addition, tables have \alert{keys} that serve as\ldots
+              \begin{itemize}
+                  \item Identifiers (\alert{primary key})
+                  \item Indices (\alert{secondary keys})
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Database management systems (DBMS)}
+    \begin{block}{Open\hyp{}source}
+        \begin{itemize}
+            \item MySQL and derivatives
+            \item PostgreSQL
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{Commercial}
+        \begin{itemize}
+            \item Microsoft SQL Server
+            \item Oracle
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Normalisation}
+    A normalised database has:\vspace{-1ex}
+    \begin{itemize}
+        \item One table per entity
+        \item Many foreign keys and/or associative tables
+    \end{itemize}
+    \vfill\pause
+    \begin{columns}[t]
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \textbf{Pros}
+            \end{center}
+            \vspace{-1ex}
+            \begin{itemize}
+                \item Minimal data duplication
+                \item Saves storage space
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \textbf{Cons}
+            \end{center}
+            \vspace{-1ex}
+            \begin{itemize}
+                \item Split across different tables
+                \item Requires joins to ‘reconstruct’
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Other database types}
+
+\begin{frame}{Key-value stores}
+    A key\hyp{}value store\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item Is like a Python \alert{dictionary}, but not limited to available
+              memory
+        \item Uses \alert{caching} strategies to ensure quick access to
+              commonly or recently accessed items
+    \end{itemize}
+    \vfill
+    \begin{block}{Examples}
+        \begin{itemize}
+            \item Apache Cassandra
+            \item Oracle NoSQL Database
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{NoSQL databases}
+    A NoSQL database\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item Organises data in ‘entities’ that allow for \alert{nesting}
+        \item Typically describes data using \alert{JSON}
+    \end{itemize}
+    \vfill
+    \begin{block}{Examples}
+        \begin{itemize}
+            \item Apache CouchDB
+            \item MongoDB
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Structured Query Language}
+
+\begin{frame}[t,fragile]{Selecting data}
+    \begin{onlyenv}<1>
+        \begin{block}{Syntax}
+            \begin{sql}
+                SELECT <columns>
+                FROM <table>
+                WHERE <conditions>
+            \end{sql}
+        \end{block}
+        \vfill
+        \begin{block}{Notes}
+            \begin{itemize}
+                \item \mintinline{sql}{SELECT *} will select \alert{all columns}
+                \item \mintinline{sql}{WHERE} can be omitted to retrieve
+                      \alert{all rows}
+            \end{itemize}
+        \end{block}
+    \end{onlyenv}
+    \begin{onlyenv}<2>
+        \begin{block}{Example}
+            \begin{sql}
+                SELECT store, sales
+                FROM global_sales
+                WHERE country == 'UK'
+            \end{sql}
+        \end{block}
+    \end{onlyenv}
+\end{frame}
+
+\begin{frame}[t,fragile]{Grouping}
+    \begin{onlyenv}<1>
+        \begin{block}{Syntax}
+            \begin{sql}
+                SELECT STATISTIC(<column>), ...
+                FROM <table>
+                ...
+                GROUP BY <indices>
+            \end{sql}
+        \end{block}
+        \vfill
+        \begin{block}{Notes}
+            \begin{itemize}
+                \item Usually paired with a \mintinline{sql}{STATISTIC} such as
+                      \mintinline{sql}{COUNT}, \mintinline{sql}{SUM},
+                      \mintinline{sql}{AVG}, \mintinline{sql}{MIN},
+                      or \mintinline{sql}{MAX} computed within groups
+                \item \mintinline{sql}{GROUP BY} can be omitted to aggregate
+                      over \alert{all rows}
+            \end{itemize}
+        \end{block}
+    \end{onlyenv}
+    \begin{onlyenv}<2>
+        \begin{block}{Example}
+            \begin{sql}
+                SELECT store, SUM(sales)
+                FROM global_sales
+                WHERE country == 'UK'
+                GROUP BY store
+            \end{sql}
+        \end{block}
+    \end{onlyenv}
+\end{frame}
+
+\begin{frame}[t,fragile]{Ordering}
+    \begin{onlyenv}<1>
+        \begin{block}{Syntax}
+            \begin{sql}
+                SELECT <columns>
+                FROM <table>
+                ...
+                ORDER BY <indices> [DESC]
+            \end{sql}
+        \end{block}
+        \vfill
+        \begin{block}{Notes}
+            \begin{itemize}
+                \item Default sorting is in \mintinline{sql}{ASC}ending order
+                \item Can also \mintinline{sql}{ORDER BY} multiple columns
+            \end{itemize}
+        \end{block}
+    \end{onlyenv}
+    \begin{onlyenv}<2>
+        \begin{block}{Example 1}
+            \begin{sql}
+                SELECT country, city, store
+                FROM global_sales
+                ORDER BY country, city
+            \end{sql}
+        \end{block}
+        \vfill
+        \begin{block}{Example 2}
+            \begin{sql}
+                SELECT store, SUM(sales) AS total_sales
+                FROM global_sales
+                GROUP BY store
+                ORDER BY total_sales DESC
+            \end{sql}
+        \end{block}
+    \end{onlyenv}
+\end{frame}
+
+\begin{frame}[t,fragile]{Joining}
+    \begin{onlyenv}<1>
+        \begin{block}{Syntax}
+            \begin{sql}
+                SELECT <columns>
+                FROM <table>
+                JOIN <table> ON <conditions>
+                ...
+            \end{sql}
+        \end{block}
+        \vfill
+        \begin{block}{Notes}
+            \begin{itemize}
+                \item Performs an \alert{inner join} (matching \alert{both}
+                      tables)
+                \item \alert{Outer joins} (\mintinline{sql}{LEFT},
+                      \mintinline{sql}{RIGHT}, or \mintinline{sql}{FULL}) can
+                      also be performed
+            \end{itemize}
+        \end{block}
+    \end{onlyenv}
+    \begin{onlyenv}<2>
+        \begin{block}{Example}
+            \begin{sql}
+                SELECT st.city, st.store, SUM(sa.sales) AS total_sales
+                FROM stores AS st
+                JOIN global_sales AS sa ON st.store == sa.store
+                WHERE st.country == 'UK'
+                GROUP BY st.country
+                ORDER BY total_sales DESC
+            \end{sql}
+        \end{block}
+    \end{onlyenv}
+\end{frame}
+
+\end{document}
+
