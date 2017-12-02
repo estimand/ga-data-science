@@ -29,6 +29,42 @@
     \end{enumerate}
 \end{frame}
 
+\begin{frame}{Time allocation}
+    \only<1>{%
+        \begin{center}
+            \LARGE%
+            Which takes longer?
+        \end{center}}
+    \only<2>{%
+        In decreasing order\ldots
+        \begin{enumerate}
+            \item Defining the problem
+            \item Obtaining the data
+            \item Cleaning and exploring the data
+            \item \alert{Managing expectations}
+            \item Summarising the results
+            \item \alert{Learning new things}
+            \item Modelling
+        \end{enumerate}}
+\end{frame}
+
+\begin{frame}{The `PR problem' of Data Science}
+    Inevitably the data are\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item Not quite what you need to solve your problem
+        \item Too limited, too large, too inaccurate, too expensive to
+              obtain\ldots
+    \end{itemize}
+    \vfill
+    But (eventually) you\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item End up with a `nice' dataset
+        \item Apply some models
+    \end{itemize}
+    \vspace{-1ex}
+    \ldots and it \alert{looks} incredibly easy from the outside!
+\end{frame}
+
 \begin{frame}[t]{Define the research question}
     \begin{itemize}
         \item Identify the problem and \alert{why} it should be solved
@@ -93,6 +129,35 @@
     \end{block}
 \end{frame}
 
+\begin{frame}{Modelling misconceptions}
+    Most well\hyp{}executed data science projects don't\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item Use complicated tools
+        \item Fit complicated models
+    \end{itemize}
+    \vfill
+    Instead, they do\ldots\vspace{-1ex}
+    \begin{itemize}
+        \item \alert{Focus on solving the problem}
+        \item Use appropriate --- not necessarily big! --- data
+        \item Use relatively standard models
+        \item Interpret results sceptically
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{The 80---20 rule of modelling}
+    \begin{itemize}
+        \item The first \alert{reasonable} thing you can do goes 80\% of the way
+        \item Everything after that is to get the remaining 20\%\ldots \\
+              often at additional cost!
+    \end{itemize}
+    \vfill\pause
+    \begin{center}
+        \LARGE%
+        Is it worth it?
+    \end{center}
+\end{frame}
+
 \begin{frame}[t]{Summarise the results}
     \begin{itemize}
         \item \alert{Storytelling} and \alert{visual aids} to interpretation
@@ -107,6 +172,15 @@
             \item How much can I disclose?
         \end{itemize}
     \end{block}
+\end{frame}
+
+\begin{frame}{Caveat}
+    \begin{center}
+        {\Large%
+         The Data Science workflow is} \\[\bigskipamount]
+        {\LARGE%
+         \alert{non\hyp{}linear} and \alert{iterative}} \\[2\bigskipamount]
+    \end{center}
 \end{frame}
 
 \end{document}
