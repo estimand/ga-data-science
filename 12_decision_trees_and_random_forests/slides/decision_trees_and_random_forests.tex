@@ -1,0 +1,222 @@
+\input{../../_common/preamble}
+
+\title{Decision trees and random forests}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Contents}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Decision trees}
+
+\begin{frame}{Should we wait?}
+    \only<1>{%
+        \begin{block}{Problem}
+            You're out with friends and need to decide whether to wait for a
+            table at a busy restaurant.
+            You have the following information:
+            \begin{itemize}
+                \small
+                \item Whether there's an alternative restaurant nearby
+                \item Whether the restaurant has a bar
+                \item How busy the restaurant is (empty, some people, packed)
+                \item Whether you're hungry (not at all, peckish, starving)
+                \item Whether it's raining
+                \item Type of restaurant (British, Chinese, Italian or Thai)
+                \item Whether it's Friday or Saturday night
+            \end{itemize}
+        \end{block}}
+    \only<2>{%
+        \begin{block}{Idea}
+            Imagine taking a sequence of decisions:
+            \begin{itemize}
+                \item If the restaurant is packed\ldots
+                      \begin{itemize}
+                          \item \ldots and we're starving\ldots
+                          \begin{itemize}
+                              \item \ldots but there's no alternative in the
+                                     area $\rightarrow$ wait
+                          \end{itemize}
+                      \end{itemize}
+            \end{itemize}
+        \end{block}
+        \vfill
+        \begin{block}{Question}
+            How `tall' should the decision tree grow?
+        \end{block}}
+\end{frame}
+
+\begin{frame}{Expressiveness}
+    \begin{itemize}
+        \item Decision trees can express \alert{any} function of the predictors \\
+              (using one leaf per sample) \\[\medskipamount]
+        \item We want to find \alert{structure} in the data, not overfit
+        \item[$\rightarrow$] Compact trees
+    \end{itemize}
+    \vfill\pause
+    \begin{block}{Idea}
+        \begin{itemize}
+            \item Choose `most significant' attribute as (sub)root
+            \item[$\rightarrow$] Ideally achieving perfect separation of categories \\[\medskipamount]
+            \item Repeat (recursively)
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Comparison with logistic regression}
+    \begin{itemize}
+        \item Logistic regression is a linear model
+        \item Each predictor `acts' independently of all others \\
+              (its marginal effect is the regression coefficient)
+    \end{itemize}
+    \vfill\pause
+    This doesn't always work:
+    \vspace{-0.5em}
+    \begin{itemize}
+        \item If the restaurant is packed\ldots
+              \begin{itemize}
+                  \item \ldots and we're starving\ldots
+                  \begin{itemize}
+                      \item \ldots but \alert{there is} an alternative
+                            $\rightarrow$ do we still wait?
+                  \end{itemize}
+              \end{itemize}
+    \end{itemize}
+    Decision trees automatically contain \alert{interactions}, since each
+    `question' depends on the previous one
+\end{frame}
+
+\begin{frame}{Training}
+    \begin{itemize}
+        \item Start with the entire dataset \\[\bigskipamount]
+        \item Find the `question' that best segregates the samples
+              $\rightarrow$ \alert{purity} \\[\bigskipamount]
+        \item Repeat (recursively) until:
+              \begin{itemize}
+                  \item You have asked as many questions as you wanted
+                  \item The gain in purity of possible splits is negligible
+                  \item Leaves are completely pure
+              \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Prediction}
+    \begin{itemize}
+        \item Answer each `question' until you reach a leaf \\[\bigskipamount]
+        \item Take the majority label of samples in that leaf
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Purity metrics}
+    \begin{block}{Gini impurity}
+        \begin{itemize}
+            \item How often would a randomly chosen sample be labelled
+                  incorrectly if it was labelled randomly with class proportions
+                  $p_{i}$?
+            \item[$\rightarrow$] $\sum_{k} p_{k} \left( 1 - p_{k} \right)$
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{Information gain}
+        \begin{itemize}
+            \item What's the reduction in (Shannon) entropy?
+            \item[$\rightarrow$] Difference in $- p \log\!\left( p \right)$ from
+                                 parent to children
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Overfitting}
+    \begin{itemize}
+        \item Decision trees can easily `memorise' the data
+        \item[$\rightarrow$] Overfitting
+    \end{itemize}
+    \vfill\pause
+    \begin{block}{Solutions}
+        Impose a limit on the\ldots\vspace{-1ex}
+        \begin{itemize}
+            \item Maximum number of questions (depth)
+            \item Minimum number of samples in each leaf
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Pros and cons}
+    \begin{block}{Pros}
+        \begin{itemize}
+            \item Can be used for regression or classification
+            \item Can be visualised $\rightarrow$ easy to interpret
+            \item Correspond to a series of `rules'
+            \item Learn interactions and irrelevant predictors
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{Cons}
+        \begin{itemize}
+            \item Prone to overfitting and sensitive to small variations
+            \item May not be globally optimal because of `greedy' splitting
+            \item Don't work well with unbalanced classes or small datasets
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\section{Random forests}
+
+\begin{frame}{Bagging}
+    Imagine a situation where\ldots
+    \begin{itemize}
+        \item You have many different models
+        \item Each predicts your outcome with some accuracy
+        \item Each also makes (independent) errors
+    \end{itemize}
+    How could you improve your prediction?
+    \vfill\pause
+    \begin{block}{Idea}
+        Let all classifiers predict and take the majority vote \\
+        (or the mean for continuous outcomes)
+    \end{block}
+\end{frame}
+
+\begin{frame}{Random forests}
+    \begin{itemize}
+        \item A collection (\alert{ensemble}) of decision trees \\[\bigskipamount]
+        \item Built randomly\ldots
+              \begin{itemize}
+                  \item On a subset of the data
+                  \item Using a subset of predictors
+              \end{itemize}
+              \ldots to avoid overfitting \\[\bigskipamount]
+        \item For prediction, each tree contributes an answer, and the final
+              model prediction is the majority vote (or the mean for continuous
+              outcomes)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Boosting}
+    Imagine a situation where\ldots
+    \begin{itemize}
+        \item You are training many models of the same type
+              \alert{sequentially}
+        \item Each predicts your outcome\ldots
+              \begin{itemize}
+                  \item Correctly for some samples
+                  \item Incorrectly for some other samples
+              \end{itemize}
+    \end{itemize}
+    How could you improve your prediction?
+    \vfill\pause
+    \begin{block}{Idea}
+        \begin{itemize}
+            \item At each step, `refine' the model by giving more weight to
+                  incorrectly predicted samples (the `hard' ones)
+            \item For prediction, compute a weighted vote/mean of \alert{all}
+                  predictions
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\end{document}
+
