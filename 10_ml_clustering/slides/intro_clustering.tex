@@ -1,0 +1,87 @@
+\input{../../_common/preamble}
+
+\title{Introduction to clustering}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Contents}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Clustering}
+
+\begin{frame}{Classification versus clustering}
+    \only<1>{%
+        \begin{block}{Classification}
+            \begin{itemize}
+                \item Data are `labelled' $\rightarrow$ \alert{supervised}
+                \item[$\rightarrow$] Find a `rule' that assigns labels to new
+                                     observations
+            \end{itemize}
+        \end{block}
+        \vfill
+        \begin{block}{Clustering}
+            \begin{itemize}
+                \item Data are `unlabelled' $\rightarrow$ \alert{unsupervised}
+                \item[$\rightarrow$] Identify structure and patterns
+            \end{itemize}
+        \end{block}}
+    \only<2>{%
+        \begin{block}{Idea}
+            \begin{itemize}
+                \item Group observations that are `close'
+                      (high intra\hyp{}cluster similarity)
+                \item Identify `natural' groupings
+                      (low inter\hyp{}cluster similarity)
+            \end{itemize}
+        \end{block}
+        \vfill
+        \begin{block}{Types of clustering}
+            \begin{itemize}
+                \item \textbf{Hard}: each observation belongs to
+                      \alert{exactly one} cluster
+                \item \textbf{Soft} (or \textbf{fuzzy}): observations may belong
+                      to multiple clusters
+                \item \textbf{Hierarchical}: observations belong to `concentric'
+                      clusters
+            \end{itemize}
+        \end{block}}
+\end{frame}
+
+\section{$k$-means}
+
+\begin{frame}{$k$-means}
+    \only<1>{%
+        Given the number of clusters $k$\ldots
+        \begin{itemize}
+            \item Select $k$ centroids (e.g.\ $k$ observations at random) \\[\medskipamount]
+            \item For each observation:
+                  \begin{itemize}
+                      \item Determine distances to the centroids
+                      \item Reassign to the closest centroid \\[\medskipamount]
+                  \end{itemize}
+            \item Recompute the centroids \\[\medskipamount]
+            \item Repeat until no observations move group
+        \end{itemize}}
+    \only<2>{%
+        \begin{block}{Questions}
+            \begin{itemize}
+                \item How do we define similarity?
+                \item How many clusters do we use?
+            \end{itemize}
+        \end{block}}
+\end{frame}
+
+\begin{frame}{Curse of dimensionality}
+    As the number of variables (coordinates) increases\ldots
+    \begin{itemize}
+        \item The volume of the space increases
+        \item Pairwise distances become more similar $\rightarrow$ sparsity
+        \item Some samples have huge neighbourhoods $\rightarrow$ `hubs'
+    \end{itemize}
+\end{frame}
+
+\end{document}
+
