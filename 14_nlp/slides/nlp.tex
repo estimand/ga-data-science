@@ -1,0 +1,243 @@
+\input{../../_common/preamble}
+
+\title{Natural language processing}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Contents}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Natural language processing}
+
+\begin{frame}{Natural language processing}
+    NLP is the task of extracting \textbf{meaning} and \textbf{information} from
+    text documents, for example:
+    \begin{itemize}
+        \item Text categorisation
+        \item Sentiment analysis
+        \item Machine translation
+    \end{itemize}
+    \vfill\pause
+    \begin{itemize}
+        \item Text is often unstructured
+        \item[$\rightarrow$] \textbf{Pre\hyp{}processing} is required
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tokenisation}
+    \begin{center}
+        \textbf{Separating} a sentence into its constituent parts (tokens)
+    \end{center}
+    \vfill\pause
+    \textbf{Example}
+    \begin{itemize}
+        \item Data science is the future!
+        \item[$\rightarrow$] \{ Data, science, is, the, future, ! \}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Stemming and lemmatisation}
+    \begin{center}
+        Identifying \textbf{roots} of words
+    \end{center}
+    \begin{itemize}
+        \item \textbf{Stemming} removes common endings such as `--ing'
+        \item \textbf{Lemmatisation} uses language\hyp{}specific knowledge
+    \end{itemize}
+    \vfill\pause
+    \textbf{Examples}
+    \begin{itemize}
+        \item Badly $\rightarrow$ bad
+        \item Best $\rightarrow$ good
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Tagging and parsing}
+    \begin{center}
+        Identifying \textbf{parts of speech} and \textbf{named entities}
+    \end{center}
+    \vfill\pause
+    \textbf{Examples}
+    \begin{itemize}
+        \item What are the nouns, adjectives, verbs, \ldots?
+        \item Which pieces go together?
+        \item Which tokens correspond to proper nouns (people, business names,
+              locations, \ldots)?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Common problems}
+    All these tasks are difficult because\ldots
+    \begin{itemize}
+        \item Language is complex and sometimes inconsistent
+        \item Usage changes frequently
+    \end{itemize}
+    \vfill\pause
+    \textbf{Approaches}
+    \begin{enumerate}
+        \item Rule\hyp{}based systems (grammar)
+        \item Usage of words (inferred from training corpora)
+    \end{enumerate}
+\end{frame}
+
+\section{Bag\hyp{}of\hyp{}words classification}
+
+\begin{frame}{Text classification}
+    \textbf{Examples}
+    \begin{itemize}
+        \item Is this article about science or sports?
+        \item Is this comment positive or negative?
+        \item Is this e\hyp{}mail spam or not?
+    \end{itemize}
+    \vfill\pause
+    \begin{itemize}
+        \item Each word becomes a predictor \\
+              (e.g.\ whether it's present in each document or not)
+        \item[$\rightarrow$] `Bag of words'
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Bag of words}
+    We can convert documents to a matrix where\ldots
+    \begin{itemize}
+        \item Each row is a sample (document)
+        \item Each column is a count or indicator for words or contiguous
+              sequences of words ($n$\hyp{}grams)
+    \end{itemize}
+    \vfill\pause
+    \begin{itemize}
+        \item `Rare' words may cause overfitting
+        \item[$\rightarrow$] Filter or use regularisation
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{tf--idf representation}
+    Term frequency--inverse document frequency (\textbf{tf--idf}) reflects how
+    important a word is to a document
+    \vspace{-1em}
+    \begin{columns}[t]
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \textbf{tf}
+            \end{center}
+            Number of times a given word occurs in a document
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \textbf{idf}
+            \end{center}
+            Inverse proportion of documents that contain the word
+        \end{column}
+    \end{columns}
+    \vfill\pause
+    High tf--idf words\ldots\vspace{-0.5em}
+    \begin{itemize}
+        \item Appear frequently in a given document
+        \item Appear rarely in other documents
+    \end{itemize}
+\end{frame}
+
+\section{Latent variable models}
+
+\begin{frame}{Latent variable models}
+    \only<1>{%
+        \begin{columns}[t]
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \textbf{Traditional NLP}
+                \end{center}
+                \begin{itemize}
+                    \item Language in theory
+                    \item Preprogrammed set of rules (grammar)
+                    \item `Bad' and `badly' are related because of a common root
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{center}
+                    \textbf{Latent variable models}
+                \end{center}
+                \begin{itemize}
+                    \item Language in practice
+                    \item Unsupervised learning of structure
+                    \item `Bad' and `badly' are related because they are used
+                          similarly or near similar words
+                \end{itemize}
+            \end{column}
+        \end{columns}}
+    \only<2>{%
+        \textbf{Assumption} \\
+        There is some hidden (\textbf{latent}) structure that we'd like to learn
+        \vfill
+        \begin{itemize}
+            \item[$\rightarrow$] Ignore grammar
+            \item[$\rightarrow$] Learn rules directly from the data
+        \end{itemize}}
+\end{frame}
+
+\begin{frame}{Redundancy of bags of words}
+    \textbf{Problem}\vspace{-0.5em}
+    \begin{itemize}
+        \item Bags of words are a \textbf{redundant} representation
+        \item Many words are likely to represent the same concept
+        \item[$\rightarrow$] Many columns are repetitive
+    \end{itemize}
+    \vfill\pause
+    \textbf{Solutions}\vspace{-0.5em}
+    \begin{itemize}
+        \item Regularisation
+        \item Dimensionality reduction
+        \item \alert{Mixture models}
+        \item \alert{Embeddings}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Latent Dirichlet allocation}
+    \only<1>{
+        \begin{itemize}
+            \item Identify correlated columns
+            \item Create clusters of common words
+            \item Generate probability distributions for relatedness
+        \end{itemize}
+        \vfill
+        \begin{itemize}
+            \item Each word belongs to a (latent) `topic'
+            \item Each document is a mixture of topics
+        \end{itemize}}
+    \only<2>{
+        LDA tries to learn\ldots
+        \begin{itemize}
+            \item The word distribution of each topic:
+                  $\Prob{ \text{word}\,|\,\text{topic} }$
+            \item The topic distribution of each document:
+                  $\Prob{ \text{topic}\,|\,\text{document} }$
+        \end{itemize}
+        \vfill
+        Model evaluation is mostly about interpretation:
+        \begin{itemize}
+            \item Do the topics make sense?
+            \item Do the constituent words of each topic make sense?
+        \end{itemize}}
+\end{frame}
+
+\begin{frame}{\texttt{word2vec}}
+    \begin{itemize}
+        \item Based on neural networks
+        \item Focus is on words, not documents
+        \item \textbf{Idea}: define a word by listing all the ways it's used
+    \end{itemize}
+    \vfill\pause
+    \textbf{Example}\vspace{-0.5em}
+    \begin{itemize}
+        \item[$+$] \ldots~is the capital of
+        \item[$+$] \ldots, UK
+        \item[$+$] The restaurant in \ldots
+        \item[$-$] Can I have a \ldots
+        \item[$-$] There's too much \ldots~on this
+    \end{itemize}
+\end{frame}
+
+\end{document}
+
