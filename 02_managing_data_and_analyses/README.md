@@ -24,7 +24,7 @@ The session is designed to be delivered over three hours (including breaks).
 ## Materials
 
 * [Introduction to databases](slides/01_databases.pdf)
-* SQL [exercises](notebooks/01_solutions.ipynb)
+* SQL [exercises](notebooks/01_sql.ipynb) and [solutions](notebooks/01_solutions.ipynb)
 * [Version control with Git and GitHub](slides/02_version_control.pdf)
 
 ## Additional resources
