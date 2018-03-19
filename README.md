@@ -39,5 +39,4 @@ By the end of the course, you should be able to:
 | 14      | [Ensemble methods](14_ensemble_methods)                                   |
 | 15      | [SVMs and neural networks](15_svms_and_neural_networks)                   |
 |         | *Presentations*                                                           |
-|         | *Presentations*                                                           |
 
