@@ -6,181 +6,181 @@
 
 \maketitle
 
-\begin{frame}{The Data Science workflow}
-    \begin{enumerate}
-        \item Define the \alert{research question}
-        \item \alert{Get} the data
-        \item \alert{Explore} the data
-              \begin{itemize}
-                  \item (Re)format, clean, merge, stratify\ldots
-                  \item Identify trends and outliers
-              \end{itemize}
-        \item \alert{Model} the data
-              \begin{itemize}
-                  \item Select and build model(s)
-                  \item Evaluate and refine model(s)
-              \end{itemize}
-        \item \alert{Summarise} the results
-              \begin{itemize}
-                  \item Condense findings into recommendations
-                  \item Describe assumptions and limitations
-                  \item Identify follow\hyp{}up research questions
-              \end{itemize}
-    \end{enumerate}
+\begin{frame}{High\hyp{}level view}
+    \only<1>{%
+        \begin{center}
+            \large%
+            Business goal
+            \vfill
+            $\downarrow$
+            \vfill
+            Testable hypothesis
+            \vfill
+            $\downarrow$
+            \vfill
+            Experimentation and modelling
+        \end{center}}
+    \only<2>{%
+        \begin{center}
+            \large%
+            Research question
+            \vfill
+            $\downarrow$
+            \vfill
+            Obtain $\ \longleftrightarrow\ $ Explore $\ \longleftrightarrow\ $ Model
+            \vfill
+            $\downarrow$
+            \vfill
+            Summarise / Operationalise
+        \end{center}}
 \end{frame}
 
 \begin{frame}{Time allocation}
-    \only<1>{%
-        \begin{center}
-            \LARGE%
-            Which takes longer?
-        \end{center}}
-    \only<2>{%
-        In decreasing order\ldots
-        \begin{enumerate}
-            \item Defining the problem
-            \item Obtaining the data
-            \item Cleaning and exploring the data
-            \item \alert{Managing expectations}
-            \item Summarising the results
-            \item \alert{Learning new things}
-            \item Modelling
-        \end{enumerate}}
-\end{frame}
-
-\begin{frame}{The `PR problem' of Data Science}
-    Inevitably the data are\ldots\vspace{-1ex}
-    \begin{itemize}
-        \item Not quite what you need to solve your problem
-        \item Too limited, too large, too inaccurate, too expensive to
-              obtain\ldots
-    \end{itemize}
-    \vfill
-    But (eventually) you\ldots\vspace{-1ex}
-    \begin{itemize}
-        \item End up with a `nice' dataset
-        \item Apply some models
-    \end{itemize}
-    \vspace{-1ex}
-    \ldots and it \alert{looks} incredibly easy from the outside!
+    \begin{center}
+        \LARGE%
+        Which takes longer?
+    \end{center}
 \end{frame}
 
 \begin{frame}[t]{Define the research question}
-    \begin{itemize}
-        \item Identify the problem and \alert{why} it should be solved
-        \item Frame it in the context of data collection
-    \end{itemize}
-    \vfill
-    \begin{block}{Questions to ask}
+    \begin{block}{What to do}
         \begin{itemize}
-            \item Which metric(s) need to be improved?
+            \item Identify the problem and why it should be solved
+            \item Frame it in the context of data collection
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{What to ask}
+        \begin{itemize}
+            \item Which metrics do I need to improve?
             \item Which are possible actions to solve the problem?
-            \item Which information is necessary and sufficient?
             \item What is the benefit of solving the problem?
         \end{itemize}
     \end{block}
 \end{frame}
 
-\begin{frame}[t]{Get the data}
-    \begin{itemize}
-        \item \alert{Ideal vs available} (`opportunistic' usage)
-        \item Limitations
-    \end{itemize}
+\begin{frame}[t]{Obtain the data}
+    \begin{block}{What to do}
+        \begin{itemize}
+            \item Measure the gap between ideal and available
+            \item Think about assumptions and limitations
+        \end{itemize}
+    \end{block}
     \vfill
-    \begin{block}{Questions to ask}
+    \begin{block}{What to ask}
         \begin{itemize}
             \item Are there enough data?
             \item Are they relevant to the research question?
             \item Can they be trusted?
-            \item How were they collected?
         \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}[t]{Explore the data}
-    \begin{itemize}
-        \item Data dictionary and any other documentation
-        \item \alert{Descriptive statistics} and \alert{visualisations}
-    \end{itemize}
-    \vfill
-    \begin{block}{Questions to ask}
+    \begin{block}{What to do}
         \begin{itemize}
-            \item What kind of simple visualisations can we use?
+            \item Data dictionary and any other documentation
+            \item Descriptive statistics and visualisations
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{What to ask}
+        \begin{itemize}
+            \item What kind of simple visualisations can I use?
             \item Which data types and distributions?
-            \item Are there outliers?
-            \item Are there missing values?
+            \item Are there missing values or outliers?
         \end{itemize}
     \end{block}
 \end{frame}
 
-\begin{frame}[t]{Model the data}\vspace{-1ex}
-    \begin{itemize}
-        \item \alert{Model selection} and fitting
-        \item Focus on inference and/or prediction
-    \end{itemize}
-    \vfill
-    \begin{block}{Questions to ask}
+\begin{frame}[t]{Model the data}
+    \begin{block}{What to do}
         \begin{itemize}
-            \item Is there an outcome?
+            \item Model selection and fitting
+            \item Focus on inference and/or prediction
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{What to ask}
+        \begin{itemize}
             \item What is an appropriate model for the data?
-            \item How can we evaluate model performance?
+            \item How can I evaluate model performance?
             \item Can the model be refined?
         \end{itemize}
     \end{block}
 \end{frame}
 
 \begin{frame}{Modelling misconceptions}
-    Most well\hyp{}executed data science projects don't\ldots\vspace{-1ex}
+    Most well\hyp{}executed Data Science projects don't\ldots
     \begin{itemize}
         \item Use complicated tools
         \item Fit complicated models
     \end{itemize}
     \vfill
-    Instead, they do\ldots\vspace{-1ex}
+    Instead, they do\ldots
     \begin{itemize}
-        \item \alert{Focus on solving the problem}
+        \item Focus on solving the problem
         \item Use appropriate --- not necessarily big! --- data
         \item Use relatively standard models
-        \item Interpret results sceptically
     \end{itemize}
 \end{frame}
 
+{\setbeamertemplate{background}{%
+    \rule{0.7\paperwidth}{0pt}%
+    \rule{0pt}{\paperheight}%
+    \includegraphics[height=0.6\paperheight]{figures/pareto}}
 \begin{frame}{The 80---20 rule of modelling}
     \begin{itemize}
-        \item The first \alert{reasonable} thing you can do goes 80\% of the way
+        \item The first reasonable thing you can do goes 80\% of the way
         \item Everything after that is to get the remaining 20\%\ldots \\
               often at additional cost!
     \end{itemize}
     \vfill\pause
     \begin{center}
-        \LARGE%
+        \Large%
         Is it worth it?
+    \end{center}
+\end{frame}}
+
+\begin{frame}{Wait a second\ldots}
+    \begin{center}
+        \LARGE%
+        We are not done yet!
     \end{center}
 \end{frame}
 
-\begin{frame}[t]{Summarise the results}
-    \begin{itemize}
-        \item \alert{Storytelling} and \alert{visual aids} to interpretation
-        \item Assumptions and limitations
-    \end{itemize}
+\begin{frame}[t]{Summarise the findings}
+    \begin{block}{What to do}
+        \begin{itemize}
+            \item Storytelling and visual aids to interpretation
+            \item Communicate assumptions and limitations
+        \end{itemize}
+    \end{block}
     \vfill
-    \begin{block}{Questions to ask}
+    \begin{block}{What to ask}
         \begin{itemize}
             \item How can I communicate results effectively?
             \item What format should I adopt?
             \item Who are my audience?
-            \item How much can I disclose?
         \end{itemize}
     \end{block}
 \end{frame}
 
-\begin{frame}{Caveat}
-    \begin{center}
-        {\Large%
-         The Data Science workflow is} \\[\bigskipamount]
-        {\LARGE%
-         \alert{non\hyp{}linear} and \alert{iterative}} \\[2\bigskipamount]
-    \end{center}
+\begin{frame}[t]{Operationalise}
+    \begin{block}{What to do}
+        \begin{itemize}
+            \item System integration
+            \item Monitoring and maintenance
+        \end{itemize}
+    \end{block}
+    \vfill
+    \begin{block}{What to ask}
+        \begin{itemize}
+            \item What (visual) outputs do I care about?
+            \item How often does the model need retraining?
+            \item Do we need to think about scalability?
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 \end{document}

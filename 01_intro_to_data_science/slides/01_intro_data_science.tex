@@ -13,41 +13,52 @@
 \section{What is Data Science?}
 
 \begin{frame}{What is Data Science?}
-    \only<1>{%
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    Mathematics and \\ Statistics / Operational Research
-                \end{center}
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    Computing and \\ Software Engineering
-                \end{center}
-            \end{column}
-        \end{columns}
-        \vfill
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    Visualisation and \\ Communication Skills
-                \end{center}
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{center}
-                    Domain expertise
-                \end{center}
-            \end{column}
-        \end{columns}}
-    \only<2>{%
-        \begin{center}
-            \LARGE%
-            A \alert{problem\hyp{}solving approach} \\
-            based on the scientific method
-        \end{center}}
+    \begin{center}
+        \includegraphics[height=0.8\textheight]{figures/data_science_venn_diagram} \\
+        {\scriptsize%
+         From S.\ Geringer (originally from D.\ Conway)}
+    \end{center}
 \end{frame}
 
-\begin{frame}[t]{What does Data Science deal with?}
+\begin{frame}{How's it different from\ldots}
+    \begin{block}{Statistics}\vspace{-0.25em}
+        \begin{itemize}
+            \item Predates computers
+            \item \alert{Understand why something happens} in the face of
+                  uncertainty
+        \end{itemize}
+    \end{block}
+    \vfill\pause
+    \begin{block}{Machine Learning}\vspace{-0.25em}
+        \begin{itemize}
+            \item `Algorithmic modelling' (L. Breiman)
+            \item Computers can \alert{learn rules} without explicit programming
+        \end{itemize}
+    \end{block}
+    \vfill\pause
+    \begin{block}{Deep Learning}\vspace{-0.25em}
+        \begin{itemize}
+            \item Less structured inputs
+            \item Computers can \alert{learn structure} without explicit
+                  programming
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Data Science is\ldots}
+    \begin{center}
+        \LARGE\bf%
+        Data\hyp{}driven decision\hyp{}making
+    \end{center}
+    \vfill
+    \begin{itemize}
+        \item Focus is on the problem\hyp{}solving process
+        \item Multidisciplinary but domain\hyp{}centric
+        \item Tools are secondary!
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{What does Data Science deal with?}
     \only<1>{%
         \begin{center}
             \LARGE%
@@ -86,91 +97,31 @@
         \end{itemize}}
 \end{frame}
 
-\begin{frame}{What is Data Science?}
-    \only<1>{%
-        \vspace{0.5em}
-        \begin{block}{Statistics}\vspace{-0.25em}
+\begin{frame}{Two types of Data Science}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \large\bf%
+                Analysis\hyp{}focused
+            \end{center}
             \begin{itemize}
-                \item Predates computers
-                \item \alert{Understand why something happens} in the face of
-                      uncertainty
+                \item Maths and Statistics
+                \item Business Intelligence
+                \item[$\to$] Assist human decision\hyp{}making
             \end{itemize}
-        \end{block}
-        \vfill
-        \begin{block}{Machine Learning}\vspace{-0.25em}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \large\bf%
+                Building\hyp{}focused
+            \end{center}
             \begin{itemize}
-                \item `Algorithmic modelling' (L. Breiman)
-                \item Computers can \alert{learn rules} without explicit
-                      programming
+                \item Machine Learning
+                \item Software Engineering
+                \item[$\to$] Develop and deploy data\hyp{}driven products
             \end{itemize}
-        \end{block}
-        \vfill
-        \begin{block}{Deep Learning}\vspace{-0.25em}
-            \begin{itemize}
-                \item Less structured inputs
-                \item Computers can \alert{learn structure} without explicit
-                      programming
-            \end{itemize}
-        \end{block}}
-    \only<2>{%
-        \begin{columns}[c]
-            \begin{column}{0.25\textwidth}
-            \end{column}
-            \begin{column}{0.375\textwidth}
-                \begin{center}
-                    \Large\bf%
-                    Predictions
-                \end{center}
-            \end{column}
-            \begin{column}{0.375\textwidth}
-                \begin{center}
-                    \Large\bf%
-                    Mechanisms
-                \end{center}
-            \end{column}
-        \end{columns}
-        \vfill
-        \begin{columns}[c]
-            \begin{column}{0.25\textwidth}
-                \begin{center}
-                    \Large\bf%
-                    Analysis
-                \end{center}
-            \end{column}
-            \begin{column}{0.375\textwidth}
-                \begin{center}
-                    \textbf{Descriptive} \\
-                    What's happening?
-                \end{center}
-            \end{column}
-            \begin{column}{0.375\textwidth}
-                \begin{center}
-                    \textbf{Diagnostic} \\
-                    Why is it happening?
-                \end{center}
-            \end{column}
-        \end{columns}
-        \vfill
-        \begin{columns}[c]
-            \begin{column}{0.25\textwidth}
-                \begin{center}
-                    \Large\bf%
-                    Building
-                \end{center}
-            \end{column}
-            \begin{column}{0.375\textwidth}
-                \begin{center}
-                    \textbf{Predictive} \\
-                    What's likely to happen?
-                \end{center}
-            \end{column}
-            \begin{column}{0.375\textwidth}
-                \begin{center}
-                   \textbf{Prescriptive} \\
-                   What do I need to do?
-                \end{center}
-            \end{column}
-        \end{columns}}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Recap}
@@ -179,68 +130,140 @@
             \setlength{\itemsep}{0.75em}
             \item \alert{Evidence\hyp{}based problem solving and
                          decision\hyp{}making}
-            \item Multidisciplinary but domain\hyp{}driven
+            \item Multidisciplinary but domain\hyp{}centric
             \item Analysis\hyp{}focused or building\hyp{}focused
         \end{itemize}
     \end{block}
 \end{frame}
 
-\section{Who is a Data Scientist?}
+\section{What can Data Science do?}
 
-\begin{frame}{Who is a Data Scientist?}
-    Someone who can\ldots
-    \begin{itemize}
-        \setlength{\itemsep}{0.75em}
-        \item Get a `feel' for the data
-        \item Communicate effectively
-        \item Work well in a team
-    \end{itemize}
+\begin{frame}{The five questions}
+    \begin{enumerate}
+        \item How much/many?
+        \item Is this A or B?
+        \item How is this organised?
+        \item Is this weird?
+        \item What should I do next?
+    \end{enumerate}
 \end{frame}
 
-\begin{frame}{What's this `feel' for the data?}
-    \only<1>{%
+\begin{frame}{How much/many?}
+    \begin{block}{Examples}
         \begin{itemize}
-            \setlength{\itemsep}{0.75em}
-            \item Passion for the domain
-            \item Curiosity about the data
-            \item Intuition and creativity
-            \item Common sense
-            \item Rigour and accuracy
-            \item Relevance
-        \end{itemize}}
-    \only<2>{%
-        \begin{center}
-            \includegraphics[height=0.8\textheight]{figures/survivorship_bias} \\
-            {\scriptsize%
-             Via \textit{Wikimedia Commons}}
-        \end{center}}
+            \item What will the temperature be next Sunday?
+            \item What will total sales be next quarter?
+        \end{itemize}
+    \end{block}
+    \begin{center}
+        \large%
+        $\downarrow$
+        \vfill
+        \alert{Regression} algorithms
+    \end{center}
 \end{frame}
 
-\begin{frame}{How do I communicate effectively?}
-    \only<1>{%
+\begin{frame}{Is this A or B?}
+    \begin{block}{Examples}
         \begin{itemize}
-            \setlength{\itemsep}{0.75em}
-            \item Condense findings into \alert{recommendations}
-            \item Use \alert{storytelling} techniques and \alert{visual aids}
-            \item Understand limitations and \alert{don't overstate results}
-        \end{itemize}}
-    \only<2>{%
-        \begin{center}
-            \includegraphics[height=0.8\textheight]{figures/pies} \\
-            {\scriptsize%
-             Via \textit{Wikimedia Commons}}
-        \end{center}}
+            \item Which is more effective: a £10 voucher or a 10\% discount?
+            \item Will this machine fail in the next month?
+        \end{itemize}
+    \end{block}
+    \begin{center}
+        \large%
+        $\downarrow$
+        \vfill
+        \alert{Classification} algorithms
+    \end{center}
 \end{frame}
 
-\begin{frame}{Recap}
-    A successful Data Scientist\ldots
-    \begin{itemize}
-        \item Is insatiably curious --- and a bit stubborn!
-        \item Never stops learning
-        \item Is a practical, impact\hyp{}driven, dependable person
-        \item Can tell a story
-        \item Knows the limitations of Data Science
-    \end{itemize}
+\begin{frame}{How is this organised?}
+    \begin{block}{Examples}
+        \begin{itemize}
+            \item Which users like similar movies?
+            \item Which items are frequently purchased together?
+        \end{itemize}
+    \end{block}
+    \begin{center}
+        \large%
+        $\downarrow$
+        \vfill
+        \alert{Clustering} algorithms
+    \end{center}
+\end{frame}
+
+\begin{frame}{Is this weird?}
+    \begin{block}{Examples}
+        \begin{itemize}
+            \item Is this transaction fraudulent?
+            \item Is this blood pressure reading normal?
+        \end{itemize}
+    \end{block}
+    \begin{center}
+        \large%
+        $\downarrow$
+        \vfill
+        \alert{Anomaly detection} algorithms
+    \end{center}
+\end{frame}
+
+\begin{frame}{What should I do next?}
+    \begin{block}{Examples}
+        \begin{itemize}
+            \item Should the thermostat adjust the temperature?
+            \item Where should the robot vacuum go next?
+        \end{itemize}
+    \end{block}
+    \begin{center}
+        \large%
+        $\downarrow$
+        \vfill
+        \alert{Reinforcement learning} algorithms
+    \end{center}
+\end{frame}
+
+\begin{frame}{Supervised vs unsupervised algorithms}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \large\bf%
+                Supervised algorithms
+            \end{center}
+            \begin{itemize}
+                \item Are trained on existing data
+                \item Can be compared according to some `goodness' metric
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \large\bf%
+                Unsupervised algorithms
+            \end{center}
+            \begin{itemize}
+                \item Don't use examples with known outcomes
+                \item Give clues, not `right answers'
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Data Science solutions}
+    \begin{center}
+        \begin{tabular}{lll}
+            \toprule
+            \textbf{Family}               & \textbf{Class}         & \textbf{Question} \\
+            \midrule
+            \multirow{2}{*}{Supervised}   & Regression             & How much/many? \\
+                                          & Classification         & Is this A or B? \\
+            \midrule
+            \multirow{2}{*}{Unsupervised} & Clustering             & How is this organised? \\
+                                          & Anomaly detection      & Is this weird? \\
+            \midrule
+                                          & Reinforcement learning & What should I do next? \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
 \end{frame}
 
 \end{document}
