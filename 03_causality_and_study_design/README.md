@@ -1,5 +1,7 @@
 # Causality and study design
 
+By Gianluca Campanella (<g.campanella@estimand.com>)
+
 [![Creative Commons License](https://i.creativecommons.org/l/by/4.0/80x15.png)](http://creativecommons.org/licenses/by/4.0/)
 
 ## Objectives
