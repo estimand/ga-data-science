@@ -24,7 +24,7 @@ By the end of the course, you should be able to:
 | 2       | [Managing data and analyses](02_managing_data_and_analyses)               |
 | 3       | [Causality and study design](03_causality_and_study_design)               |
 | 4       | [EDA and data visualisation](04_eda_and_data_visualization)               |
-|         | *Lightning talks*                                                         |
+|         | [*Lightning talks*](final_projects.md)                                    |
 | 5       | [Statistical thinking](05_statistical_thinking)                           |
 | 6       | [Generalised linear models](06_glms)                                      |
 | 7       | [Time series](07_time_series)                                             |
@@ -38,5 +38,5 @@ By the end of the course, you should be able to:
 | 13      | [Natural language processing](13_nlp)                                     |
 | 14      | [Ensemble methods](14_ensemble_methods)                                   |
 | 15      | [SVMs and neural networks](15_svms_and_neural_networks)                   |
-|         | *Presentations*                                                           |
+|         | [*Final presentations*](final_projects.md)                                |
 
