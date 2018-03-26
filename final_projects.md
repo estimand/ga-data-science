@@ -14,6 +14,28 @@
 * **Can I use Web scraping?**
   You're free to use Web scraping to collect data; however, be aware that this can be very time-intensive (especially if you've never done it before.)!
 
+* **What are some examples of past projects?**
+  People have worked on all sorts of projects, for example:
+  * Applying Machine Learning techniques to Fantasy Football
+  * Characterising spending patterns of customers of an online bank
+  * Classifying relevant documents for e-discovery
+  * Evaluating regional dependencies of stocks and indices
+  * Forecasting supply and demand for an over-the-phone interpreting service
+  * Identifying undervalued properties in the London real estate market
+  * Modelling cost per click (CPC) data
+  * Modelling user activity of a large music streaming service
+  * Predicting movie trends and success
+  * Predicting stock price movements following press releases
+  * Predicting the impact of initiatives against malaria
+  * Predicting the likelihood of customer engagement via e-mail
+  * Predicting the probability of committing and closing sales opportunities
+  * Recommend products to maximise revenue
+  * Understanding client churn
+  * Understanding how weather affects the online retail industry
+  * Understanding whether API requests are made on behalf of Web scrapers
+  * Understanding which socioeconomic characteristics help describe higher crime rates in different London boroughs
+  * Using pay data from job ads to predict salaries from job titles
+
 * **I have a question not covered here!**
   Get in touch with us! Our feedback mantra is 'early and often'.
 
