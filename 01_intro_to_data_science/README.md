@@ -24,9 +24,9 @@ The session is designed to be delivered over three hours (including breaks).
 
 ## Materials
 
-* [Introduction to Data Science](slides/01_intro_data_science.pdf)
-* [Problem statement](slides/02_exercise.pdf)
-* [The Data Science workflow](slides/03_data_science_workflow.pdf)
+* [Introduction to Data Science](https://cdn.rawgit.com/estimand/ga-data-science/master/01_intro_to_data_science/slides/01_intro_data_science.pdf)
+* [Problem statement](https://cdn.rawgit.com/estimand/ga-data-science/master/01_intro_to_data_science/slides/02_exercise.pdf)
+* [The Data Science workflow](https://cdn.rawgit.com/estimand/ga-data-science/master/01_intro_to_data_science/slides/03_data_science_workflow.pdf)
 
 ## Additional resources
 
