@@ -25,9 +25,9 @@ The session is designed to be delivered over three hours (including breaks).
 
 ## Materials
 
-* [Data visualisation with `matplotlib`](notebooks/01_matplotlib.ipynb)
-* [Data visualisation with `seaborn`](notebooks/02_seaborn.ipynb)
-* [Exercises](notebooks/03_exercises.ipynb) and [solutions](notebooks/03_solutions.ipynb)
+* [Data visualisation with `matplotlib`](https://cdn.rawgit.com/estimand/ga-data-science/master/04_eda_and_data_visualization/notebooks/01_matplotlib.ipynb)
+* [Data visualisation with `seaborn`](https://cdn.rawgit.com/estimand/ga-data-science/master/04_eda_and_data_visualization/notebooks/02_seaborn.ipynb)
+* [Exercises](https://cdn.rawgit.com/estimand/ga-data-science/master/04_eda_and_data_visualization/notebooks/03_exercises.ipynb) and [solutions](https://cdn.rawgit.com/estimand/ga-data-science/master/04_eda_and_data_visualization/notebooks/03_solutions.ipynb)
 
 ## Additional resources
 
