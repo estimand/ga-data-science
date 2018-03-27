@@ -12,7 +12,7 @@
   To be able to use some of the Machine Learning techniques we cover in the second half of the course, you want 1,000 or more observations. Remember that larger datasets can always be downsampled, but it's difficult to obtain more data when they're not there!
 
 * **Can I use Web scraping?**
-  You're free to use Web scraping to collect data; however, be aware that this can be very time-intensive (especially if you've never done it before.)!
+  You're free to use Web scraping to collect data; however, be aware that this can be very time-intensive (especially if you've never done it before)!
 
 * **What are some examples of past projects?**
   People have worked on all sorts of projects, for example:
