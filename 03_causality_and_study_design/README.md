@@ -24,9 +24,9 @@ The session is designed to be delivered over three hours (including breaks).
 
 ## Materials
 
-* [Causality and study design](slides/causality_study_design.pdf)
-* [Introduction to `pandas`](notebooks/01_pandas.ipynb)
-* `pandas` [exercises](notebooks/02_exercises.ipynb) and [solutions](02_solutions.ipynb)
+* [Causality and study design](https://cdn.rawgit.com/estimand/ga-data-science/master/03_causality_and_study_design/slides/causality_study_design.pdf)
+* [Introduction to `pandas`](https://cdn.rawgit.com/estimand/ga-data-science/master/03_causality_and_study_design/notebooks/01_pandas.ipynb)
+* `pandas` [exercises](https://cdn.rawgit.com/estimand/ga-data-science/master/03_causality_and_study_design/notebooks/02_exercises.ipynb) and [solutions](https://cdn.rawgit.com/estimand/ga-data-science/master/03_causality_and_study_design/notebooks/02_solutions.ipynb)
 
 ## Additional resources
 
