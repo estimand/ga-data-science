@@ -26,4 +26,5 @@ The session is designed to be delivered over three hours (including breaks).
 
 * [Ensemble methods](https://cdn.rawgit.com/estimand/ga-data-science/master/14_ensemble_methods/slides/ensemble_methods.pdf)
 * [Boosting using `scikit-learn` and XGBoost](https://cdn.rawgit.com/estimand/ga-data-science/master/14_ensemble_methods/notebooks/01_boosting.ipynb)
+* [Exercises](https://cdn.rawgit.com/estimand/ga-data-science/master/14_ensemble_methods/notebooks/02_exercises.ipynb) and [solutions](https://cdn.rawgit.com/estimand/ga-data-science/master/14_ensemble_methods/notebooks/02_solutions.ipynb)
 
